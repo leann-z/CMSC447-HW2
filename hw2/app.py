@@ -53,3 +53,26 @@ def update(id):
         return redirect(url_for('index'))
     
     return render_template('update.html', user=user)
+
+@app.route('/search', methods=('GET', 'POST'))
+def search():
+    search = ""
+    users = []
+    if request.method == "POST":
+        search = request.form["search"].strip()
+        query = """
+        SELECT * FROM users WHERE
+        CAST(id AS TEXT) LIKE ? OR
+        name LIKE ? OR
+        points LIKE ?
+        """
+        arguments = (f"%{search}%", f"%{search}%", f"%{search}%")
+        
+        conn = get_db_connection()
+        users = conn.execute(query, arguments).fetchall()
+        conn.close()
+
+    return render_template('search.html', users=users)
+
+
+
