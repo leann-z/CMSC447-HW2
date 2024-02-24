@@ -9,25 +9,33 @@
 </head>
 <body>
     <div class="container mt-5">
-   <h1>CMSC 447 Homework 2</h1>
+    <h1 class="title">CMSC 447 Homework 2</h1>
+
+    <div class="menu">
+    <a type="button" href="{{ url_for('create') }}" class="btn btn-light menu"> Add New Entry </a>
+    <a type="button" href="{{ url_for('search') }}" class="btn btn-light menu"> Search For Entry </a>
+    </div>
+
    <table class="table table-bordered table-hover">
-    <thead class="thead-dark">
+    <thead >
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Points</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         {% for user in users %}
         <tr>
-            <td>{{ user['id'] }}</td>
-            <td>{{ user['name'] }}</td>
-            <td>{{ user['points'] }}</td>
+            <td class="cell-words">{{ user['id'] }}</td>
+            <td class="cell-words">{{ user['name'] }}</td>
+            <td class="cell-words">{{ user['points'] }}</td>
+            
             <td>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton{{ user.id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Actions
+                        
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ user.id }}">
                         <a class="dropdown-item" href="{{ url_for('update', id=user.id) }}">Update</a>

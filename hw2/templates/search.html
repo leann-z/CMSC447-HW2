@@ -10,20 +10,27 @@
 <body>
     
 <form action="{{ url_for('search') }}" method="post">
-    <input type="text" name="search" placeholder="Search by ID, name, or points">
-    <button type="submit">Search</button>
+    <div class="form-group">
+    <input type="text" name="search" class="form-control" placeholder="Input Name, ID, or Points...">
+    </div>
+    <button class="btn btn-light menu" type="submit">Search</button>
 </form>
 
 {% if users %}
-    <h2>Search Results</h2>
-    <ul>
+    <h2 class="title">Search Results</h2>
+    <ul class="title">
     {% for user in users %}
-        <li>{{ user.id }} - {{ user.name }} - {{ user.points }}</li>
+        <h4> ID = {{ user.id }}, Name = {{ user.name }}, Points = {{ user.points }}</h4>
     {% endfor %}
         </ul>
 {% else %}
-    <p>No results found. Try a different search!</p>
+    <p class="title">No results found. </p>
 {% endif %}
+
+<div class="menu">
+    <a type="button" href="{{ url_for('index') }}" class="btn btn-light menu"> Back </a>
+    
+    </div>
     
 </body>
 </html>

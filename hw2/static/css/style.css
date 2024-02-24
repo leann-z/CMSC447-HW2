@@ -1,3 +1,39 @@
 body {
-    background-color: lightblue;
+    background-color: #333333;
+    
 }
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    color:aliceblue;
+    margin: auto; 
+}
+
+.table, .dropdown-item, .dropdown-menu {
+    background-color: aliceblue;
+}
+
+.btn {
+    background-color: #333333;
+}
+
+.cell-words {
+    color:#333333;
+}
+
+.menu {
+    text-align: center;
+    font-weight: bold;
+    color:aliceblue;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    
+}
+
+.form-control {
+    max-width: 500px; 
+   
+   
+}
+
